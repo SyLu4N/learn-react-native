@@ -29,10 +29,10 @@
 
 <div>
 
-  <h1> &lt; ImHere /&gt; </h1>
+  <h1> ImHere </h1>
   <br/>
 
-  [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=SyLu4N&repo=myportfolio&theme=dracula)](https://github.com/SyLu4N/learn-react-native/tree/main/imhere)
+  ![Preview](https://raw.githubusercontent.com/SyLu4N/learn-react-native/main/imhere/demos/imhere_gif.gif)
 </div>
 <br/>
 <br/>
