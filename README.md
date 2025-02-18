@@ -33,7 +33,7 @@
   <br/>
 
   <a href="https://github.com/SyLu4N/learn-react-native">
-   ![Preview](https://raw.githubusercontent.com/SyLu4N/learn-react-native/main/imhere/demos/imhere_gif.gif)
+   <img src="/imhere/demos/imhere_gif.gif" alt="Gif do Projeto" />
   </a>
 </div>
 <br/>
