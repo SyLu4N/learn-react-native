@@ -9,18 +9,15 @@
 
  <h6 align="center">
     <h3>Aplicação</h3>
-    <a href="https://github.com/SyLu4N/learn-react-native/blob/main/imhere/demos/imhere_gif.gif">
-      <img src="./imgReadme/IMC.gif" alt="Funcionamento do IMC" />
-    </a><br>
-    Ferramentas usadas: functions / keyFrames
+    <img src="./demos/imhere_gif.gif" alt="Funcionamento da aplicação" />
+    <br>
+    Ferramentas usadas: React Native / Expo / Javascript
  </h6>
  <h2></h2>
 
  <h6 align="center">
     <h3>Código</h3>
-    <a href="https://github.com/SyLu4N/learn-react-native/blob/main/imhere/demos/imhere_cod_gif.gif">
-      <img src="./imgReadme/IMC.gif" alt="Funcionamento do IMC" />
-    </a><br>
-    Ferramentas usadas: functions / keyFrames
+    <img src="./demos/imhere_cod_gif.gif" alt="Código da aplicação" />
+    <br>
  </h6>
  <h2></h2>
