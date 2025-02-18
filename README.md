@@ -32,7 +32,7 @@
   <h1> ImHere </h1>
   <br/>
 
-  <a href=" https://github.com/SyLu4N/learn-react-native/tree/main/imhere">
+  <a href="https://github.com/SyLu4N/learn-react-native/tree/main/imhere">
    <img src="/imhere/demos/imhere_gif.gif" alt="Gif do Projeto" />
   </a>
 </div>
