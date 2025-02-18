@@ -32,7 +32,7 @@
   <h1> &lt; ImHere /&gt; </h1>
   <br/>
   
-  [![Readme Card]([https://sylu4n.github.io/JsUdemy/exercicios/Relogio/index.html](https://github.com/SyLu4N/learn-react-native/tree/main/imhere))
+  [![Readme Card](https://github.com/SyLu4N/learn-react-native/tree/main/imhere)
 </div>
 <br/>
 <br/>
