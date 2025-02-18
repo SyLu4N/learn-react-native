@@ -31,8 +31,8 @@
 
   <h1> &lt; ImHere /&gt; </h1>
   <br/>
-  
-  [![Readme Card](https://github.com/SyLu4N/learn-react-native/tree/main/imhere)
+
+  [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=SyLu4N&repo=myportfolio&theme=dracula)](https://github.com/SyLu4N/learn-react-native/tree/main/imhere)
 </div>
 <br/>
 <br/>
