@@ -32,7 +32,9 @@
   <h1> ImHere </h1>
   <br/>
 
-  ![Preview](https://raw.githubusercontent.com/SyLu4N/learn-react-native/main/imhere/demos/imhere_gif.gif)
+  <a href="https://github.com/SyLu4N/learn-react-native">
+   ![Preview](https://raw.githubusercontent.com/SyLu4N/learn-react-native/main/imhere/demos/imhere_gif.gif)
+  </a>
 </div>
 <br/>
 <br/>
