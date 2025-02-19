@@ -1,0 +1,9 @@
+**Erro ao tentar instalar Styled-Componentes**
+
+npx expo install react-dom
+
+e depois 
+
+npm install styled-components
+
+------------------------------------ // ------------------------------------
