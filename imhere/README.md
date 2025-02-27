@@ -1,11 +1,11 @@
 # Project ImHere
 
- ✓ Working With Hooks! <br>
- ✓ Working With Components! <br>
- ✓ Working With State! <br>
- ✓ Working With Expo Native! <br>
- ✓ Working With Function! <br>
- ✓ Working With Objects! <br>
+✓ Working With Hooks! <br>
+✓ Working With Components! <br>
+✓ Working With State! <br>
+✓ Working With Expo Native! <br>
+✓ Working With Function! <br>
+✓ Working With Objects! <br>
 
  <h6 align="center">
     <h3>Aplicação</h3>

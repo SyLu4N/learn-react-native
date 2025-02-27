@@ -39,3 +39,18 @@
 <br/>
 <br/>
 
+<br/>
+<br/>
+
+<div>
+
+  <h1> IgniteTeams </h1>
+  <br/>
+
+  <a href="https://github.com/SyLu4N/learn-react-native/tree/main/igniteTeams">
+   <img src="/igniteTeams/assets/app-presentation.gif" alt="Gif do Projeto" />
+  </a>
+</div>
+<br/>
+<br/>
+
