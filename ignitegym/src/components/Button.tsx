@@ -16,15 +16,16 @@ export function Button({
 }: Props) {
   return(
     <GluestackButton 
-    w='$full'
-    h='$14'
-    bg={variant === 'outline' ? 'transparent' : '$green700'}
-    borderWidth={variant === 'outline' ? '$1' : '$0' }
-    borderColor='$green500'
-    rounded='$sm'
-    $active-bg={variant === 'outline' ? '$gray500' : '$green500'}
-    disabled={isLoading}
-    {...rest} 
+      w='$full'
+      h='$14'
+      bg={variant === 'outline' ? 'transparent' : '$green700'}
+      borderWidth={variant === 'outline' ? '$1' : '$0' }
+      opacity={isLoading ? 0.5 : 1}
+      borderColor='$green500'
+      rounded='$sm'
+      $active-bg={variant === 'outline' ? '$gray500' : '$green500'}
+      disabled={isLoading}
+      {...rest} 
     >
       { isLoading ? (
         <ButtonSpinner color='$white' />
