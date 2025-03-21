@@ -12,17 +12,19 @@ import { AppError } from '@utils/AppError';
 import { useToastError } from '@hooks/useToastError';
 import { api } from '@services/api';
 import { ExerciseDTO } from '@dtos/ExerciseDTO';
+import { Loading } from '@components/Loading';
 
 export function Home() {
   const navigation = useNavigation<AppNavigatorRoutesProps>();
   const toastError = useToastError();
 
-  const [groups, setGroups] = useState<String[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [groups, setGroups] = useState<string[]>([]);
   const [exercises, setExercices] = useState<ExerciseDTO[]>([]);
-  const [groupSelected, setGroupSelected] = useState<String>('');
+  const [groupSelected, setGroupSelected] = useState<string>('');
 
-  function handleOpenExerciseDetails() {
-    navigation.navigate('exercise');
+  function handleOpenExerciseDetails(exerciseId: string) {
+    navigation.navigate('exercise', { exerciseId });
   }
 
   async function fetchGroups() {
@@ -34,17 +36,21 @@ export function Home() {
       const isAppError = error instanceof AppError;
       const title = isAppError ? error.message : 'Não foi possível carregar os grupos musculares.';
       toastError({ title });
-    }
+    } 
   }
 
   async function fetchExercisesByGroup() {
     try {
+      setIsLoading(true);
+
       const response = await api.get(`/exercises/bygroup/${groupSelected}`);
       setExercices(response.data);
     } catch (error) {
       const isAppError = error instanceof AppError;
       const title = isAppError ? error.message : 'Não foi possível carregar os exercícios.';
       toastError({ title });
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -76,7 +82,10 @@ export function Home() {
         style={{ marginVertical: 40, maxHeight: 44, minHeight: 44 }}
       />
 
-      <VStack px='$8' flex={1}>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <VStack px={8} flex={1}>
         <HStack justifyContent='space-between' alignItems='center' mb='$5'>
           <Heading color='$gray200' fontSize='$md' fontFamily='$heading'>Exercícios</Heading>
 
@@ -89,12 +98,16 @@ export function Home() {
           data={exercises}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <ExerciseCard data={item} onPress={handleOpenExerciseDetails} />
+            <ExerciseCard
+              data={item} 
+              onPress={() => handleOpenExerciseDetails(item.id)} 
+            />
           )}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 20 }}
         />
       </VStack>
+      )}
     </VStack>
   );
 }
