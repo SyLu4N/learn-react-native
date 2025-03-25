@@ -1,12 +1,12 @@
 import { Heading, HStack, Text, VStack, Icon } from '@gluestack-ui/themed';
 import { LogOut } from 'lucide-react-native';
+import { Alert, TouchableOpacity } from 'react-native';
 
 import { useAuth } from '@hooks/useAuth';
-
+import { api } from '@services/api';
 import { UserPhoto } from '@components/UserPhoto';
 
 import defaultUserPhotoImg from '@assets/userPhotoDefault.png';
-import { Alert, TouchableOpacity } from 'react-native';
 
 export function HomeHeader() {
   const { user, signOut } = useAuth();
@@ -22,10 +22,14 @@ export function HomeHeader() {
     )
   }
 
+  console.log(user);
+
   return (
     <HStack bg='$gray600' pt='$16' pb='$5' px='$8' alignItems='center' gap='$4'>
       <UserPhoto 
-        source={user.avatar ? { uri: user.avatar } : defaultUserPhotoImg} 
+        source={
+          user.avatar ? { uri: `${api.defaults.baseURL}/avatar/${user.avatar}` } : defaultUserPhotoImg
+        } 
         w='$16'
         h='$16'
         alt='Tiago Silva' 

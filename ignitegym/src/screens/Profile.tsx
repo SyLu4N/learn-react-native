@@ -18,6 +18,8 @@ import { useAuth } from '@hooks/useAuth';
 import { AppError } from '@utils/AppError';
 import { useToastError } from '@hooks/useToastError';
 
+import defaultUserPhotoImg from '@assets/userPhotoDefault.png';
+
 const profileSchema = yup
   .object({
     name: yup.string().required("Informe o nome"),
@@ -59,7 +61,6 @@ export function Profile() {
   });
 
   const [isUpdating, setIsUpdating] = useState(false);
-  const [userPhoto, setUserPhoto] = useState('https://github.com/SyLu4N.png');
 
   async function handleUserPhotoSelect() {
     try {
@@ -73,11 +74,10 @@ export function Profile() {
   
       if (photoSelect.canceled) return;
   
-      const photoUri = photoSelect.assets[0].uri;
+      const photoSelected = photoSelect.assets[0];
   
-      if (photoUri) {
-        const photoInfo = 
-        await FileSystem.getInfoAsync(photoUri) as { size: number };
+      if (photoSelected.uri) {
+        const photoInfo = await FileSystem.getInfoAsync(photoSelected.uri) as { size: number };
   
         if (photoInfo.size && (photoInfo.size / 1024 / 1024) > 5) {
           return toast.show({
@@ -92,8 +92,40 @@ export function Profile() {
             )
           })
         }
+
+        const fileExtesion = photoSelected.uri.split('.').pop();
   
-        setUserPhoto(photoUri);
+        const photoFile = {
+          name: `${user.name}.${fileExtesion}`.toLowerCase(),
+          uri: photoSelected.uri,
+          type: `${photoSelected.type}/${fileExtesion}`
+        } as any
+
+        const userPhotoUploadForm = new FormData();
+        userPhotoUploadForm.append('avatar', photoFile);
+
+        const response = await api.patch('/users/avatar', userPhotoUploadForm, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+
+        const userUpdated = user;
+        userUpdated.avatar = response.data.avatar;
+
+        await updateUserProfile(userUpdated);
+
+        toast.show({
+          placement: 'top',
+          render: ({ id }) => (
+            <ToastMessage 
+              id={id}
+              action='success' 
+              title='Foto atualizada com sucesso!'  
+              onClose={() => toast.close(id)} 
+            />
+          )
+        });
       }
     } catch (error) {
       console.log(error);
@@ -139,7 +171,11 @@ export function Profile() {
       <ScrollView contentContainerStyle={{ paddingBottom: 36 }}>
         <Center mt='$6' px='$10'>
           <UserPhoto 
-            source={{ uri: userPhoto }} 
+            source={
+              user.avatar  
+                ? { uri: `${api.defaults.baseURL}/avatar/${user.avatar}` } 
+                : defaultUserPhotoImg
+            } 
             alt='Foto do usuário' 
             size='xl'
           />
