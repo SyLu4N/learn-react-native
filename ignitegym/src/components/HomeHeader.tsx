@@ -22,8 +22,6 @@ export function HomeHeader() {
     )
   }
 
-  console.log(user);
-
   return (
     <HStack bg='$gray600' pt='$16' pb='$5' px='$8' alignItems='center' gap='$4'>
       <UserPhoto 

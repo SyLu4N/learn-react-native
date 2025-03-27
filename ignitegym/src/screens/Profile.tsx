@@ -128,7 +128,6 @@ export function Profile() {
         });
       }
     } catch (error) {
-      console.log(error);
       Alert.alert('Não foi possivel carregar a imagem no momento.');
     }
   }
